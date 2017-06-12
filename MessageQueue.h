@@ -15,8 +15,8 @@ struct Attributes
     {
         ReadOnly, WriteOnly, ReadWrite
     };
-    std::uint64_t maxMessages;
-    std::uint64_t maxMessageSize;
+    std::int32_t maxMessages;
+    std::int32_t maxMessageSize;
     Permissions access;
 };
 

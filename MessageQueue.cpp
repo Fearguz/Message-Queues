@@ -10,10 +10,7 @@ MessageQueue::~MessageQueue() noexcept {}
 
 void MessageQueue::Create(const std::string& queueName, const Attributes& attributes) noexcept(false)
 {
-    mq_attr attrs {0,
-                   static_cast<long int>(attributes.maxMessages),
-                   static_cast<long int>(attributes.maxMessageSize),
-                   0};
+    mq_attr attrs {0, static_cast<long int>(attributes.maxMessages), static_cast<long int>(attributes.maxMessageSize), 0};
     int mqd = mq_open(queueName.c_str(), O_CREAT | ConvertToFlag(attributes.access), 0644, &attrs);
     CheckErrors(mqd);
 
