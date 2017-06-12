@@ -14,7 +14,7 @@ public:
     MessageQueueClient(MessageQueueClient&&) noexcept = delete;
     MessageQueueClient& operator=(const MessageQueueClient&) = delete;
     MessageQueueClient& operator=(MessageQueueClient&&) noexcept = delete;
-    ~MessageQueueClient() noexcept override = default;
+    ~MessageQueueClient() noexcept override;
 
     void Send(const std::vector<std::uint8_t>& buffer) const noexcept(false) override;
 };

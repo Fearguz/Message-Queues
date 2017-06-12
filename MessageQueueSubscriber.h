@@ -14,7 +14,7 @@ public:
     MessageQueueSubscriber(MessageQueueSubscriber&&) noexcept = delete;
     MessageQueueSubscriber& operator=(const MessageQueueSubscriber&) = delete;
     MessageQueueSubscriber& operator=(MessageQueueSubscriber&&) noexcept = delete;
-    ~MessageQueueSubscriber() noexcept override = default;
+    ~MessageQueueSubscriber() noexcept override;
 
     void Receive(std::vector<std::uint8_t>& buffer, std::size_t length) const noexcept(false) override;
 };

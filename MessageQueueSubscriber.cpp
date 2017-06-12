@@ -8,6 +8,18 @@ MessageQueueSubscriber::MessageQueueSubscriber(const std::string &queueName) : M
     Subscribe(queueName);
 }
 
+MessageQueueSubscriber::~MessageQueueSubscriber() noexcept
+{
+    try
+    {
+        Close();
+    }
+    catch (const MessageQueueError& e)
+    {
+        // Nothing to do.
+    }
+}
+
 void MessageQueueSubscriber::Receive(std::vector<std::uint8_t>& buffer, std::size_t length) const
 {
     MessageQueue::Receive(buffer, length);
