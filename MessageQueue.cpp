@@ -29,11 +29,7 @@ void MessageQueue::Connect(const std::string &queueName, Attributes::Permissions
 
 void MessageQueue::Subscribe(const std::string& queueName) noexcept(false)
 {
-    int mqd = mq_open(queueName.c_str(), ConvertToFlag(Attributes::ReadOnly));
-    CheckErrors(mqd);
-
-    m_queueName = queueName;
-    m_mq = mqd;
+    Connect(queueName, Attributes::ReadOnly);
 }
 
 void MessageQueue::Receive(std::vector<std::uint8_t>& buffer, std::size_t length) const noexcept(false)
